@@ -13,6 +13,15 @@
         android:theme="@style/Theme.Lmspoltekgo"
         tools:targetApi="31">
         <activity
+            android:name=".SubmitAssign"
+            android:exported="false" />
+        <activity
+            android:name=".Tugas"
+            android:exported="false" />
+        <activity
+            android:name=".Kursus"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
