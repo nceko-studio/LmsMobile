@@ -3,6 +3,7 @@ package com.example.lmspoltekgo.api;
 import com.example.lmspoltekgo.data.KursusData;
 import com.example.lmspoltekgo.data.UserData;
 import com.example.lmspoltekgo.response.LoginResponse;
+import com.example.lmspoltekgo.response.TugasResponse;
 
 import java.util.List;
 
@@ -38,5 +39,14 @@ public interface ServerInterface {
             @Field("wsfunction") String function,
             @Field("moodlewsrestformat") String format,
             @Field("userid") int userid
+    );
+
+    @FormUrlEncoded
+    @POST("webservice/rest/server.php")
+    Call<TugasResponse> getTugas(
+            @Field("wstoken") String token,
+            @Field("wsfunction") String function,
+            @Field("moodlewsrestformat") String format,
+            @Field("courseids[0]") int courseid
     );
 }

@@ -47,7 +47,7 @@ public class Kursus extends AppCompatActivity {
 
         kursusList = new ArrayList<>();
 
-        adapter = new KursusAdapter(Kursus.this, kursusList);
+        adapter = new KursusAdapter(Kursus.this, kursusList, token);
         recyclerView.setAdapter(adapter);
 
         getBiodata(token, username);
@@ -71,6 +71,7 @@ public class Kursus extends AppCompatActivity {
 
                     for (UserData userData : userDataList) {
                         idBiodata = userData.getId();
+                        adapter.setIdBiodata(idBiodata);
                         processBiodata(idBiodata, token);
                     }
                 } else {
@@ -92,8 +93,6 @@ public class Kursus extends AppCompatActivity {
         String format = "json";
         int idBdata = idBiodata;
 
-        Log.d("TOKEN : ",token);
-        Log.d("ID BIODATA : ", String.valueOf(idBdata));
         serverInterface = ServerMoodle.getClient().create(ServerInterface.class);
 
         serverInterface.getKursus(token,function,format,idBdata).enqueue(new Callback<List<KursusData>>(){
