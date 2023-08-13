@@ -20,7 +20,7 @@ import java.util.List;
 public class KursusAdapter extends RecyclerView.Adapter<KursusAdapter.ViewHolder> {
 
     private int idBiodata;
-    private String token;
+    private String token, username;
     private final Context context;
     private List<KursusData> kursusDataList;
 
@@ -31,8 +31,9 @@ public class KursusAdapter extends RecyclerView.Adapter<KursusAdapter.ViewHolder
         this.token = token;
     }
 
-    public void setIdBiodata(int idBiodata) {
+    public void setIdBiodata(int idBiodata, String username) {
         this.idBiodata = idBiodata;
+        this.username  = username;
     }
 
     @NonNull
@@ -52,6 +53,7 @@ public class KursusAdapter extends RecyclerView.Adapter<KursusAdapter.ViewHolder
             Intent intent = new Intent(v.getContext(), Tugas.class);
             intent.putExtra("idkursus", String.valueOf(kursusDataList.get(position).getId()));
             intent.putExtra("idbiodata", String.valueOf(idBiodata));
+            intent.putExtra("username", String.valueOf(username));
             intent.putExtra("token", token);
             v.getContext().startActivity(intent);
         });

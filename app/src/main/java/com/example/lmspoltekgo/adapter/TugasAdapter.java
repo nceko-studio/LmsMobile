@@ -20,15 +20,16 @@ import java.util.Date;
 import java.util.List;
 
 public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> {
-    private String token,idBiodata;
+    private String token,idBiodata, username;
     private final Context context;
     private List<AssignmentData> tugasDataList;
 
-    public TugasAdapter(Context context, List<AssignmentData> tugasDataList, String token, String idBiodata){
+    public TugasAdapter(Context context, List<AssignmentData> tugasDataList, String token, String idBiodata, String username){
         this.context = context;
         this.tugasDataList = tugasDataList;
         this.token = token;
         this.idBiodata = idBiodata;
+        this.username = username;
     }
 
     @NonNull
@@ -52,6 +53,7 @@ public class TugasAdapter extends RecyclerView.Adapter<TugasAdapter.ViewHolder> 
             intent.putExtra("idtugas", String.valueOf(tugasDataList.get(position).getId()));
             intent.putExtra("idbiodata", idBiodata);
             intent.putExtra("token", token);
+            intent.putExtra("username", username);
             v.getContext().startActivity(intent);
         });
 

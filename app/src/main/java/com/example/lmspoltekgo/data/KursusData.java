@@ -19,7 +19,7 @@ public class KursusData {
     private boolean completionhascriteria;
     private boolean completionusertracked;
     private int category;
-    private int progress;
+    private double progress;
     private boolean completed;
     private long startdate;
     private long enddate;
@@ -97,6 +97,14 @@ public class KursusData {
         return summaryformat;
     }
 
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
+    }
+
     public void setSummaryformat(int summaryformat) {
         this.summaryformat = summaryformat;
     }
@@ -155,14 +163,6 @@ public class KursusData {
 
     public void setCategory(int category) {
         this.category = category;
-    }
-
-    public int getProgress() {
-        return progress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
     }
 
     public boolean isCompleted() {

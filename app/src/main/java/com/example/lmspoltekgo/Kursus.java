@@ -25,7 +25,7 @@ import retrofit2.Response;
 public class Kursus extends AppCompatActivity {
 
     private String token, username;
-    private int idBiodata;
+    int idBiodata;
     private ServerInterface serverInterface;
     private RecyclerView recyclerView;
     private KursusAdapter adapter;
@@ -71,7 +71,7 @@ public class Kursus extends AppCompatActivity {
 
                     for (UserData userData : userDataList) {
                         idBiodata = userData.getId();
-                        adapter.setIdBiodata(idBiodata);
+                        adapter.setIdBiodata(idBiodata,username);
                         processBiodata(idBiodata, token);
                     }
                 } else {

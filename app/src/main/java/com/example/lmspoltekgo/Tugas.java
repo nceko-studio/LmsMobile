@@ -25,7 +25,7 @@ import retrofit2.Response;
 
 public class Tugas extends AppCompatActivity {
 
-    private String token, idBiodata, idKursus;
+    private String token, idBiodata, idKursus, username;
     private ServerInterface serverInterface;
     private RecyclerView recyclerView;
     private TugasAdapter adapter;
@@ -40,6 +40,7 @@ public class Tugas extends AppCompatActivity {
         idKursus = intent.getStringExtra("idkursus");
         idBiodata = intent.getStringExtra("idbiodata");
         token = intent.getStringExtra("token");
+        username = intent.getStringExtra("username");
 
         recyclerView = findViewById(R.id.rvTugas);
 
@@ -48,7 +49,7 @@ public class Tugas extends AppCompatActivity {
 
         assignmentData = new ArrayList<>();
 
-        adapter = new TugasAdapter(Tugas.this, assignmentData, token, idBiodata);
+        adapter = new TugasAdapter(Tugas.this, assignmentData, token, idBiodata, username);
         recyclerView.setAdapter(adapter);
 
         getDataTugas(token, Integer.parseInt(idKursus));
